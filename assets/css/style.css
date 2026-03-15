@@ -70,7 +70,7 @@ body {
     background: rgba(0, 0, 0, 0.6);
 }
 
-body {
+body.admin_login {
     font-family: Arial;
     background: #1f2937;
     display: flex;

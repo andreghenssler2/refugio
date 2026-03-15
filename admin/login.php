@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body class="admin_login">
 
     <div class="login-box">
 
@@ -54,9 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
         if (password_verify($senha, $user['senha'])) {
-
             $_SESSION['admin'] = $user['id'];
             $_SESSION['nome'] = $user['nome'];
+            $_SESSION['acesso'] = password_hash($user['nome'].rand(100000, 900000), PASSWORD_DEFAULT);
+
 
             header("Location: dashboard.php");
             exit;

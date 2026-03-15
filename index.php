@@ -1,14 +1,12 @@
-<?php
-
-// header("location: https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html");
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <?php
         include("config/settings.php");
+        if(isset($_SESSION['acesso'])){
+            include_once "mod/core/auth.php ";
+        }
     ?>
     <title>Refúgio Serrano</title>
     <meta name="description" content="Descanso cercado pela natureza, com conforto e tranquilidade">
