@@ -1,22 +1,51 @@
 <?php
 require_once __DIR__ . '/../config/settings.php';
-// session_start();
-    if(!file_exists('install/criado.txt')){
-        header("Location: install/");
+
+$msg = "";
+
+if (!file_exists('install/criado.txt')) {
+    header("Location: install/");
+    exit;
+}
+
+// PROCESSA LOGIN
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $sql->execute([$email]);
+
+    if ($sql->rowCount() > 0) {
+
+        $user = $sql->fetch(PDO::FETCH_ASSOC);
+
+        if (password_verify($senha, $user['senha'])) {
+
+            $_SESSION['admin'] = $user['id'];
+            $_SESSION['nome'] = $user['nome'];
+            $_SESSION['acesso'] = password_hash($user['nome'] . rand(100000, 900000), PASSWORD_DEFAULT);
+            $_SESSION['is_logged_in'] =true;
+            header("Location: dashboard.php");
+            exit;
+
+        } else {
+            $msg = "Senha incorreta";
+        }
+
+    } else {
+        $msg = "Usuário não encontrado";
     }
+}
 ?>
-<?php $msg = ""; ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-<?php
-
-        include(__DIR__ . '/../config/headers.php');
-    ?>
- <title>Admin - Refúgio Serrano</title>
-
-
+    <?php include(__DIR__ . '/../config/headers.php'); ?>
+    <title>Admin - Refúgio Serrano</title>
 </head>
 
 <body class="admin_login">
@@ -44,37 +73,4 @@ require_once __DIR__ . '/../config/settings.php';
     </div>
 
 </body>
-
 </html>
-<?php
-// echo password_hash("123456", PASSWORD_DEFAULT);
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
-    $sql->execute([$email]);
-
-    if ($sql->rowCount() > 0) {
-
-        $user = $sql->fetch(PDO::FETCH_ASSOC);
-
-        if (password_verify($senha, $user['senha'])) {
-            $_SESSION['admin'] = $user['id'];
-            $_SESSION['nome'] = $user['nome'];
-            $_SESSION['acesso'] = password_hash($user['nome'].rand(100000, 900000), PASSWORD_DEFAULT);
-
-
-            header("Location: dashboard.php");
-            exit;
-
-        } else {
-            $msg = "Senha incorreta";
-        }
-
-    } else {
-        $msg = "Usuário não encontrado";
-    }
-}
-?>

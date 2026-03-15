@@ -1,7 +1,7 @@
 <?php
 include("config/settings.php");
-if (!isset($_SESSION['acesso'])) {
-    include_once "mod/core/auth.php ";
+if (isset($_SESSION['acesso'])) {
+    include_once __DIR__ . "/mod/core/auth.php";
 }
 ?>
 <!DOCTYPE html>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['acesso'])) {
 
                 </ul>
 
-                <a href="https://www.booking.com/" class="btn btn-success ms-3">
+                <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-success ms-3">
                     Reservar
                 </a>
 
@@ -97,7 +97,7 @@ if (!isset($_SESSION['acesso'])) {
                 Chalé aconchegante em meio à natureza
             </p>
 
-            <a href="https://www.booking.com/" class="btn btn-book btn-lg">
+            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-book btn-lg">
                 Reservar Agora
             </a>
 
@@ -163,7 +163,7 @@ if (!isset($_SESSION['acesso'])) {
 
                             <p>Perfeito para momentos românticos.</p>
 
-                            <a href="https://www.booking.com/" class="btn btn-success">
+                            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-success">
                                 Ver disponibilidade
                             </a>
 
@@ -185,7 +185,7 @@ if (!isset($_SESSION['acesso'])) {
 
                             <p>Conforto e charme para noites frias.</p>
 
-                            <a href="https://www.booking.com/" class="btn btn-success">
+                            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-success">
                                 Reservar
                             </a>
 
@@ -207,7 +207,7 @@ if (!isset($_SESSION['acesso'])) {
 
                             <p>Espaço ideal para relaxar com quem você ama.</p>
 
-                            <a href="https://www.booking.com/" class="btn btn-success">
+                            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-success">
                                 Reservar
                             </a>
 
@@ -326,7 +326,7 @@ if (!isset($_SESSION['acesso'])) {
                 Garanta sua hospedagem agora mesmo
             </p>
 
-            <a href="https://www.booking.com/" class="btn btn-light btn-lg">
+            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-light btn-lg">
                 Reservar no Booking
             </a>
 
