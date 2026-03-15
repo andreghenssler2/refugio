@@ -1,12 +1,16 @@
+<?php
+include("config/settings.php");
+if (!isset($_SESSION['acesso'])) {
+    include_once "mod/core/auth.php ";
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <?php
-        include("config/settings.php");
-        if(isset($_SESSION['acesso'])){
-            include_once "mod/core/auth.php ";
-        }
+
+        include("config/headers.php");
     ?>
     <title>Refúgio Serrano</title>
     <meta name="description" content="Descanso cercado pela natureza, com conforto e tranquilidade">
@@ -31,7 +35,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NS86HB6NY7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-NS86HB6NY7');

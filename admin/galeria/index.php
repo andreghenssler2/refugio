@@ -1,9 +1,17 @@
+<?php
+    require_once __DIR__ . '/../../config/settings.php';
+    if (isset($_SESSION['acesso'])) {
+        include_once "../../mod/core/auth.php";
+    }else{
+            header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <?php
-    require_once __DIR__ . "/../../config/settings.php";
+    require_once __DIR__ . "/../../config/headers.php";
 
     $imagens = $pdo->query("SELECT * FROM galeria ORDER BY id DESC")->fetchAll();
     ?>

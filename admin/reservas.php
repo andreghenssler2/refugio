@@ -1,4 +1,12 @@
 <?php
+        // session_start();
+    require_once __DIR__ . '/../config/settings.php';
+    if (isset($_SESSION['acesso'])) {
+                include_once "../mod/core/auth.php";
+
+    }else{
+            header("Location: login.php");
+    }
 require_once "../mod/core/db.php";
 
 $busca = $_GET['busca'] ?? '';
@@ -29,12 +37,13 @@ $reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
     <?php
         // session_start();
-        require_once __DIR__ . '/../config/settings.php';
+        require_once __DIR__ . '/../config/headers.php';
         ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

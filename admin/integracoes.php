@@ -1,7 +1,9 @@
 <?php
 
 $msg = "";
-
+require_once __DIR__ . '/../config/settings.php';
+    if (isset($_SESSION['acesso'])) {
+    }
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +11,9 @@ $msg = "";
 
 <head>
 
-    <?php
-    // session_start();
-    require_once __DIR__ . '/../config/settings.php';
+     <?php
+
+        include(__DIR__ . '/../config/headers.php');
     ?>
     <title>Integrações - Refúgio Serrano</title>
 

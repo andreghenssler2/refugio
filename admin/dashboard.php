@@ -1,11 +1,20 @@
+<?php
+        // session_start();
+    require_once __DIR__ . '/../config/settings.php';
+    if (isset($_SESSION['acesso'])) {
+        include_once "../mod/core/auth.php";
+    }else{
+            header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
 
     <?php
-        // session_start();
-        require_once __DIR__ . '/../config/settings.php';
+
+        include(__DIR__ . '/../config/headers.php');
     ?>
     <title>Dashboard - Refúgio Serrano</title>
 

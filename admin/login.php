@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../config/settings.php';
+// session_start();
     if(!file_exists('install/criado.txt')){
         header("Location: install/");
     }
@@ -8,9 +10,9 @@
 <html lang="pt-BR">
 
 <head>
-    <?php
-        session_start();
-        require_once __DIR__ . '/../config/settings.php';
+<?php
+
+        include(__DIR__ . '/../config/headers.php');
     ?>
  <title>Admin - Refúgio Serrano</title>
 

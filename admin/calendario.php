@@ -1,11 +1,16 @@
+<?php
+        // session_start();
+        require_once __DIR__ . '/../config/settings.php';
+    ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
 
+    
     <?php
-        // session_start();
-        require_once __DIR__ . '/../config/settings.php';
+
+        include(__DIR__ . '/../config/headers.php');
     ?>
 
     <title>Calendário de Reservas - Refúgio Serrano</title>
