@@ -1,3 +1,8 @@
+<?php
+    if(!file_exists('install/text.txt')){
+        header("Location: install/");
+    }
+?>
 <?php $msg = ""; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

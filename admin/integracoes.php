@@ -114,7 +114,7 @@ $export_url = BASE_URL."api/exportar_calendario.php";
                 <p>Cole aqui o link iCal do Booking.</p>
 
                 <input type="text" name="booking_ical" value="<?= htmlspecialchars($booking_ical) ?>"
-                    placeholder="https://admin.booking.com/hotel/hoteladmin/ical.html?...">
+                    placeholder="https://admin.booking.com/hotel/hoteladmin/ical.html?27353500acde0998ccc077fe84688d21">
 
             </div>
 
