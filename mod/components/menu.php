@@ -10,38 +10,39 @@
 
     <ul>
 
+
         <li>
-            <a href="/admin/dashboard.php">
+            <a href="<?php echo BASE_URL; ?>admin/dashboard.php">
                 🏠 Dashboard
             </a>
         </li>
 
         <li>
-            <a href="/admin/reservas.php">
+            <a href="<?php echo BASE_URL; ?>admin/reservas.php">
                 📅 Reservas
             </a>
         </li>
 
         <li>
-            <a href="/admin/calendario.php">
+            <a href="<?php echo BASE_URL; ?>admin/calendario.php">
                 🗓 Calendário
             </a>
         </li>
 
         <li>
-            <a href="/admin/booking.php">
+            <a href="<?php echo BASE_URL; ?>admin/booking.php">
                 🔗 Booking
             </a>
         </li>
 
         <li>
-            <a href="/admin/config.php">
+            <a href="<?php echo BASE_URL; ?>admin/config.php">
                 ⚙ Configurações
             </a>
         </li>
 
         <li>
-            <a href="/admin/logout.php">
+            <a href="<?php echo BASE_URL; ?>admin/logout.php">
                 🚪 Sair
             </a>
         </li>
