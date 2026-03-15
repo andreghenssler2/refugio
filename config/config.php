@@ -43,5 +43,5 @@
     define('UPLOADS_IMG_URL', BASE_URL . 'uploads/img/');
     define('IMG_URL', BASE_URL . 'img/');
     
-    
+    require_once '../mod/core/db.php';
     
