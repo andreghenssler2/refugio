@@ -1,5 +1,5 @@
 <?php
-    if(!file_exists('install/text.txt')){
+    if(!file_exists('install/criado.txt')){
         header("Location: install/");
     }
 ?>

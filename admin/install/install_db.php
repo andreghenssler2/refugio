@@ -42,7 +42,7 @@ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ");
 
-    /* TABELA USUÁRIOS */
+    /* TABELA USUARIOS */
 
     $pdo->exec("
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -55,14 +55,14 @@ senha VARCHAR(255)
 
     echo "✔ Tabelas criadas<br>";
 
-    /* CONFIGURAÇÃO PADRÃO */
+    /* CONFIG PADRÃO */
 
     $config = $pdo->query("SELECT id FROM configuracoes LIMIT 1")->fetch();
 
     if (!$config) {
 
         $pdo->exec("
-INSERT INTO configuracoes (id, booking_ical, airbnb_ical)
+INSERT INTO configuracoes (id,booking_ical,airbnb_ical)
 VALUES (
 1,
 'https://ical.booking.com/v1/export?27353500acde0998ccc077fe84688d21',
@@ -74,7 +74,7 @@ VALUES (
 
     }
 
-    /* USUÁRIO ADMIN */
+    /* USUARIO ADMIN */
 
     $user = $pdo->query("SELECT id FROM usuarios WHERE email='admin@email.com'")->fetch();
 
@@ -97,6 +97,14 @@ VALUES (?,?,?)
         echo "Login: admin@email.com<br>";
         echo "Senha: 123456<br>";
 
+    }
+
+    /* CRIA ARQUIVO criado.txt */
+
+    $arquivo = __DIR__ . "/criado.txt";
+
+    if (!file_exists($arquivo)) {
+        file_put_contents($arquivo, "Instalado com sucesso em " . date("d/m/Y H:i"));
     }
 
     echo "<h3>🎉 Instalação concluída</h3>";
