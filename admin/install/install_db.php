@@ -8,50 +8,22 @@ try {
 
     /* TABELA CHALES */
 
-    $pdo->exec("
-CREATE TABLE IF NOT EXISTS chales (
-id INT AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(100)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-");
+    $pdo->exec(" CREATE TABLE IF NOT EXISTS chales (id INT AUTO_INCREMENT PRIMARY KEY,nome VARCHAR(100)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
     /* TABELA CONFIGURAÇÕES */
 
-    $pdo->exec("
-CREATE TABLE IF NOT EXISTS configuracoes (
-id INT PRIMARY KEY,
-booking_ical TEXT,
-airbnb_ical TEXT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS configuracoes (id INT PRIMARY KEY,booking_ical TEXT,airbnb_ical TEXT) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
     /* TABELA RESERVAS */
 
-    $pdo->exec("
-CREATE TABLE IF NOT EXISTS reservas (
-id INT AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(120),
-email VARCHAR(120),
-chale_id INT,
-data_checkin DATE,
-data_checkout DATE,
-pessoas INT,
-status VARCHAR(30),
-origem VARCHAR(50),
-criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS reservas (id INT AUTO_INCREMENT PRIMARY KEY,nome VARCHAR(120),email VARCHAR(120),chale_id INT,data_checkin DATE,data_checkout DATE,pessoas INT,status VARCHAR(30),origem VARCHAR(50),criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
     /* TABELA USUARIOS */
 
-    $pdo->exec("
-CREATE TABLE IF NOT EXISTS usuarios (
-id INT AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(100),
-email VARCHAR(120),
-senha VARCHAR(255)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS usuarios (id INT AUTO_INCREMENT PRIMARY KEY,nome VARCHAR(100),email VARCHAR(120),senha VARCHAR(255)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
+
+    // GALERIA DE FOTOS
+    $pdo->exec("CREATE TABLE IF NOT EXISTS galeria (id INT AUTO_INCREMENT PRIMARY KEY,arquivo VARCHAR(255),titulo VARCHAR(120),criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP);");
 
     echo "✔ Tabelas criadas<br>";
 

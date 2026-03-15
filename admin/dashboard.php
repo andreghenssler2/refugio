@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="../assets/css/admin/admin.css">
     <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/theme.js"></script>
 
     <style>
         /* HEADER */
