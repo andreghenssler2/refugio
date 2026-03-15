@@ -36,7 +36,7 @@
         </li>
 
         <li>
-            <a href="<?php echo BASE_URL; ?>admin/config.php">
+            <a href="<?php echo BASE_URL; ?>admin/integracoes.php">
                 ⚙ Configurações
             </a>
         </li>
