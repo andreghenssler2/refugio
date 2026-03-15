@@ -2,14 +2,14 @@
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    // require_once __DIR__ . '/../mod/core/db.php';
+    require_once __DIR__ . '/../mod/core/db.php';
 
     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
     date_default_timezone_set('America/Sao_Paulo');
     header('Content-Type: text/html; charset=utf-8');
     // Gera um nonce (para inline scripts opcionais)
 
-    // $nonce = base64_encode(random_bytes(16));
+    $nonce = base64_encode(random_bytes(16));
 
     // HTTPS detecta automaticamente
     $is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443;
@@ -44,4 +44,5 @@
     define('ASSETS_JS_URL', BASE_URL . 'assets/js/');
     define('UPLOADS_IMG_URL', BASE_URL . 'uploads/img/');
     define('IMG_URL', BASE_URL . 'img/');
-
+    
+    

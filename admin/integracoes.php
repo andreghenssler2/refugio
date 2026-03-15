@@ -74,18 +74,15 @@ $msg = "";
 <body>
     <?php
 require_once "../mod/components/menu.php";
-?>
-<?php
+// require_once "core/db.php";
+
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $booking = $_POST['booking_ical'] ?? "";
     $airbnb = $_POST['airbnb_ical'] ?? "";
 
-    $sql = $pdo->prepare("
-UPDATE configuracoes
-SET booking_ical=?, airbnb_ical=?
-WHERE id=1
-");
+    $sql = $pdo->prepare(" UPDATE configuracoes SET booking_ical=?, airbnb_ical=? WHERE id=1 ");
 
     $sql->execute([$booking, $airbnb]);
 
@@ -97,7 +94,7 @@ $config = $pdo->query("SELECT * FROM configuracoes WHERE id=1")->fetch(PDO::FETC
 $booking_ical = $config['booking_ical'] ?? "";
 $airbnb_ical = $config['airbnb_ical'] ?? "";
 
-$export_url = "https://" . $_SERVER['HTTP_HOST'] . "/api/exportar_calendario.php";
+$export_url = BASE_URL."api/exportar_calendario.php";
 
 ?>
     <div class="main">
