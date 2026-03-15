@@ -1,23 +1,39 @@
 <?php
+require_once "../config/config.php";
 
-require_once __DIR__ . "/../config/settings.php";
+$dir = __DIR__."/../uploads/img/";
 
-$dir = __DIR__ . "/../uploads/img/";
-
-if (!is_dir($dir)) {
-    mkdir($dir, 0777, true);
+if(!is_dir($dir)){
+    mkdir($dir,0777,true);
 }
 
-$titulo = $_POST['titulo'] ?? '';
+if(!isset($_FILES['imagens'])){
+    echo json_encode(["success"=>false,"msg"=>"Nenhuma imagem enviada"]);
+    exit;
+}
 
-$nome = time() . '_' . $_FILES['imagem']['name'];
+$total = count($_FILES['imagens']['name']);
 
-$tmp = $_FILES['imagem']['tmp_name'];
+for($i=0;$i<$total;$i++){
 
-move_uploaded_file($tmp, $dir . $nome);
+    $nome = $_FILES['imagens']['name'][$i];
+    $tmp  = $_FILES['imagens']['tmp_name'][$i];
 
-$stmt = $pdo->prepare("INSERT INTO galeria (arquivo,titulo) VALUES (?,?)");
+    $ext = pathinfo($nome,PATHINFO_EXTENSION);
 
-$stmt->execute([$nome, $titulo]);
+    $novoNome = time()."_".$i.".".$ext;
 
-header("Location: " . BASE_URL . "admin/galeria");
+    move_uploaded_file($tmp,$dir.$novoNome);
+
+    $stmt = $pdo->prepare("INSERT INTO galeria (arquivo,titulo) VALUES (?,?)");
+    $stmt->execute([$novoNome,$nome]);
+
+}
+
+header('Content-Type: application/json');
+
+echo json_encode([
+    "success"=>true
+]);
+
+exit;

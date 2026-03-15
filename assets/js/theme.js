@@ -323,26 +323,32 @@ document.addEventListener("DOMContentLoaded", function () {
         let formData = new FormData();
 
         for (let file of files) {
-
             formData.append("imagens[]", file);
-
         }
 
         fetch("../../api/upload_imagem.php", {
-
             method: "POST",
             body: formData
-
         })
-            .then(r => r.json())
+            .then(r => r.text()) // primeiro texto
             .then(res => {
 
-                location.reload();
+                try {
 
-            })
-            .catch(err => {
+                    let json = JSON.parse(res);
 
-                alert("Erro no upload");
+                    if (json.success) {
+                        location.reload();
+                    } else {
+                        alert(json.msg || "Erro no upload");
+                    }
+
+                } catch (e) {
+
+                    console.error(res);
+                    alert("Erro no upload");
+
+                }
 
             });
 

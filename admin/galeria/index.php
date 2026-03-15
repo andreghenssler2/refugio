@@ -69,21 +69,21 @@
 
             <form action="../../api/upload_imagem.php" method="POST" enctype="multipart/form-data">
 
-                <input type="text" name="titulo" placeholder="Título da imagem">
+                <!-- <input type="text" name="titulo" placeholder="Título da imagem"> -->
 
                 <br><br>
 
                 <div id="dropZone" class="drop-zone">
 
-📂 Arraste imagens aqui ou clique para enviar
+                    📂 Arraste imagens aqui ou clique para enviar
 
-<input type="file" id="fileInput" multiple accept="image/*" hidden>
+                    <input type="file" id="fileInput" multiple accept="image/*" hidden>
 
-</div>
+                </div>
 
                 <br><br>
 
-                <button type="submit">Enviar imagem</button>
+                <!-- <button type="submit">Enviar imagem</button> -->
 
             </form>
 
@@ -98,7 +98,11 @@
                     <div class="card shadow-sm">
 
                         <!-- <img src="<?= BASE_URL ?>uploads/img/<?= $img['arquivo'] ?>" class="card-img-top"> -->
-                        <img  src="<?php echo BASE_URL; ?>uploads/img/<?= $img['arquivo'] ?>" class="img-fluid rounded galeria-img" data-id="<?= $img['id'] ?>" data-src="<?php echo BASE_URL; ?>uploads/img/<?= $img['arquivo'] ?>" data-arquivo="<?= $img['titulo'] ?>" data-criado="<?= $img['criado_em'] ?>" data-atualizado="<?= $img['atualizado_em'] ?>" style="cursor:pointer">
+                        <img src="<?php echo BASE_URL; ?>uploads/img/<?= $img['arquivo'] ?>"
+                            class="img-fluid rounded galeria-img" data-id="<?= $img['id'] ?>"
+                            data-src="<?php echo BASE_URL; ?>uploads/img/<?= $img['arquivo'] ?>"
+                            data-arquivo="<?= $img['titulo'] ?>" data-criado="<?= $img['criado_em'] ?>"
+                            data-atualizado="<?= $img['atualizado_em'] ?>" style="cursor:pointer">
                         <div class="card-body text-center">
 
                             <p class="card-text"><?= $img['titulo'] ?></p>
@@ -133,9 +137,8 @@
 
                                 <button id="prevImg" class="nav-img">←</button>
 
-                                <img id="modalPreview"
-                                class="img-fluid"
-                                style="max-height:80vh; object-fit:contain; transition:transform .2s;">
+                                <img id="modalPreview" class="img-fluid"
+                                    style="max-height:80vh; object-fit:contain; transition:transform .2s;">
 
                                 <button id="nextImg" class="nav-img">→</button>
 
@@ -151,7 +154,7 @@
                                 </div>
                                 <hr>
                                 <button class="btn btn-danger w-100 mb-2" id="btnExcluir">
-                                    Excluir 
+                                    Excluir
                                 </button>
                                 <button class="btn btn-success w-100" id="btnRenomear">
                                     Salvar Nome

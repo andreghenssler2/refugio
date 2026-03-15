@@ -23,7 +23,8 @@ try {
     $pdo->exec("CREATE TABLE IF NOT EXISTS usuarios (id INT AUTO_INCREMENT PRIMARY KEY,nome VARCHAR(100),email VARCHAR(120),senha VARCHAR(255)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;");
 
     // GALERIA DE FOTOS
-    $pdo->exec("CREATE TABLE IF NOT EXISTS galeria (id INT AUTO_INCREMENT PRIMARY KEY,arquivo VARCHAR(255),titulo VARCHAR(120),criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP);");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS galeria (id INT AUTO_INCREMENT PRIMARY KEY,arquivo VARCHAR(255),titulo VARCHAR(120), `descricao` TEXT, `criado_em` TIMESTAMP DEFAULT CURRENT_TIMESTAMP, `atualizado_em` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);");
+    // $pdo->exec("ALTER TABLE `galeria` ADD FULLTEXT(`id`, `arquivo`, `titulo`, `descricao`, `criado_em`, `atualizado_em`)");
 
     echo "✔ Tabelas criadas<br>";
 

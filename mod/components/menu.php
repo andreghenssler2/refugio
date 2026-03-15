@@ -30,8 +30,8 @@
         </li>
 
         <li>
-            <a href="<?php echo BASE_URL; ?>admin/booking.php">
-                🔗 Booking
+            <a href="<?php echo BASE_URL; ?>admin/galeria/">
+                📷 Galeria
             </a>
         </li>
 
