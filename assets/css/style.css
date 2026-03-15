@@ -127,3 +127,12 @@ body.admin_login {
     margin-bottom: 10px;
     font-weight: bold;
 }
+body.dark{
+background:#111827;
+color:white;
+}
+
+body.dark .card{
+background:#1f2937;
+color:white;
+}
