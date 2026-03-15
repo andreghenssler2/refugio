@@ -73,7 +73,13 @@
 
                 <br><br>
 
-                <input type="file" name="imagem" required>
+                <div id="dropZone" class="drop-zone">
+
+📂 Arraste imagens aqui ou clique para enviar
+
+<input type="file" id="fileInput" multiple accept="image/*" hidden>
+
+</div>
 
                 <br><br>
 
@@ -91,8 +97,8 @@
 
                     <div class="card shadow-sm">
 
-                        <img src="<?= BASE_URL ?>uploads/img/<?= $img['arquivo'] ?>" class="card-img-top">
-
+                        <!-- <img src="<?= BASE_URL ?>uploads/img/<?= $img['arquivo'] ?>" class="card-img-top"> -->
+                        <img  src="<?php echo BASE_URL; ?>uploads/img/<?= $img['arquivo'] ?>" class="img-fluid rounded galeria-img" data-id="<?= $img['id'] ?>" data-src="<?php echo BASE_URL; ?>uploads/img/<?= $img['arquivo'] ?>" data-arquivo="<?= $img['titulo'] ?>" data-criado="<?= $img['criado_em'] ?>" data-atualizado="<?= $img['atualizado_em'] ?>" style="cursor:pointer">
                         <div class="card-body text-center">
 
                             <p class="card-text"><?= $img['titulo'] ?></p>
@@ -110,6 +116,51 @@
 
             <?php endforeach; ?>
 
+        </div>
+    </div>
+    <div class="modal fade" id="modalImagem">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Imagem</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- PREVIEW -->
+                            <div class="col-lg-8 text-center position-relative">
+
+                                <button id="prevImg" class="nav-img">←</button>
+
+                                <img id="modalPreview"
+                                class="img-fluid"
+                                style="max-height:80vh; object-fit:contain; transition:transform .2s;">
+
+                                <button id="nextImg" class="nav-img">→</button>
+
+                            </div>
+                            <!-- INFORMAÇÕES -->
+                            <div class="col-lg-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Nome do arquivo</label>
+                                    <input type="text" id="novoNome" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <p id="infoDatas" class="text-muted"></p>
+                                </div>
+                                <hr>
+                                <button class="btn btn-danger w-100 mb-2" id="btnExcluir">
+                                    Excluir 
+                                </button>
+                                <button class="btn btn-success w-100" id="btnRenomear">
+                                    Salvar Nome
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal fade" id="deleteModal" tabindex="-1">
