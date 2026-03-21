@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<meta charset="UTF-8">
+<meta name="theme-color" content="#587b5a">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
@@ -16,3 +16,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Google tag (gtag.js) -->
+
+<meta property="og:image" content="https://refugioserrano.com.br/uploads/cabana.jpg">
+<link rel="shortcut icon" href="https://refugioserrano.com.br/uploads/favicon.ico" type="image/icon" />
+<meta property="og:image:width" content="1599">
+<meta property="og:image:height" content="899">
+<meta property="og:image:type" content="image/jpeg">

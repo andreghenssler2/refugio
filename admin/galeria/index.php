@@ -3,7 +3,7 @@
     if (isset($_SESSION['acesso'])) {
         include_once "../../mod/core/auth.php";
     }else{
-            header("Location: login.php");
+            header("Location: ../login.php");
     }
 ?>
 <!DOCTYPE html>

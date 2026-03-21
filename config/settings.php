@@ -1,8 +1,5 @@
 <?php
-
 include("config.php");
-
-?>
 
     
     

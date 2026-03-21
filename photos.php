@@ -9,7 +9,20 @@ $imagens = $pdo->query("SELECT * FROM galeria ORDER BY id DESC")->fetchAll();
 
 <head>
 
-    <meta charset="UTF-8">
+    <?php
+
+    include("config/headers.php");
+    ?>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NS86HB6NY7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NS86HB6NY7');
+    </script>
     <title>Galeria - Refúgio Serrano</title>
 
     <style>

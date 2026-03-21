@@ -71,6 +71,12 @@
 
     .menu-toggle {
         display: block;
+        color: white;
+        z-index: 10000;
+    }
+
+    .sidebar {
+        z-index: 9999;
     }
 
     .main {

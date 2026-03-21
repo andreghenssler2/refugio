@@ -33,7 +33,7 @@ if (isset($_SERVER['HTTP_HOST']) === TRUE) {
     if ($host == "localhost") {
         $host .= "/refugio";
     } else {
-        $host .= $host;
+        $host = $host;
     }
 }
 

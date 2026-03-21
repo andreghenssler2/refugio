@@ -1,7 +1,7 @@
 <?php
 include("config/settings.php");
 if (isset($_SESSION['acesso'])) {
-    include_once __DIR__ . "/mod/core/auth.php";
+    include_once __DIR__."/mod/core/auth.php";
 }
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ if (isset($_SESSION['acesso'])) {
 <head>
     <?php
 
-        include("config/headers.php");
+    include("config/headers.php");
     ?>
     <title>Refúgio Serrano</title>
     <meta name="description" content="Descanso cercado pela natureza, com conforto e tranquilidade">
@@ -72,7 +72,7 @@ if (isset($_SESSION['acesso'])) {
 
                 </ul>
 
-                <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-success ms-3">
+                <a href="https://www.booking.com/" class="btn btn-success ms-3">
                     Reservar
                 </a>
 
@@ -97,7 +97,7 @@ if (isset($_SESSION['acesso'])) {
                 Chalé aconchegante em meio à natureza
             </p>
 
-            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-book btn-lg">
+            <a href="#chales" class="btn btn-book btn-lg">
                 Reservar Agora
             </a>
 
@@ -123,8 +123,7 @@ if (isset($_SESSION['acesso'])) {
                     </p>
 
                     <p>
-                        Aproveite chalés aconchegantes, café da manhã especial e
-                        uma experiência única em meio às montanhas.
+                        Aproveite chalés aconchegantes, uma experiência única em meio às montanhas.
                     </p>
 
                 </div>
@@ -147,7 +146,7 @@ if (isset($_SESSION['acesso'])) {
 
         <div class="container text-center">
 
-            <h2 class="mb-5">Nossos Chalés</h2>
+            <h2 class="mb-5">Nossa Cabana</h2>
 
             <div class="row">
 
@@ -159,7 +158,7 @@ if (isset($_SESSION['acesso'])) {
 
                         <div class="card-body">
 
-                            <h5>Chalé Casal</h5>
+                            <h5>Cabana Casal</h5>
 
                             <p>Perfeito para momentos românticos.</p>
 
@@ -177,15 +176,15 @@ if (isset($_SESSION['acesso'])) {
 
                     <div class="card shadow">
 
-                        <img src="<?php echo UPLOADS_IMG_URL; ?>cabana1.jpeg" class="card-img-top">
+                        <img src="<?php echo UPLOADS_IMG_URL; ?>1773660602_0.jpg" class="card-img-top">
 
                         <div class="card-body">
 
-                            <h5>Chalé com Lareira</h5>
+                            <h5>Chalé Privativo</h5>
 
                             <p>Conforto e charme para noites frias.</p>
 
-                            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-success">
+                            <a href="https://www.booking.com/hotel/br/refugio-serrano-chale.pt-pt.html" class="btn btn-success">
                                 Reservar
                             </a>
 
@@ -207,7 +206,7 @@ if (isset($_SESSION['acesso'])) {
 
                             <p>Espaço ideal para relaxar com quem você ama.</p>
 
-                            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-success">
+                            <a href="https://www.booking.com/" class="btn btn-success">
                                 Reservar
                             </a>
 
@@ -231,29 +230,32 @@ if (isset($_SESSION['acesso'])) {
 
             <h2 class="mb-5">Galeria</h2>
 
-            <div class="row gallery">
+            <?php
+                $imgs = $pdo->query("SELECT * FROM galeria ORDER BY RAND() LIMIT 3")->fetchAll(PDO::FETCH_ASSOC);
+                ?>
 
-                <div class="col-md-4 mb-4" data-aos="fade-up">
-                    <img src="<?php echo UPLOADS_IMG_URL; ?>foto (6).jpg" class="img-fluid">
-                </div>
+                <div class="row gallery">
 
-                <div class="col-md-4 mb-4" data-aos="fade-up">
-                    <img src="<?php echo UPLOADS_IMG_URL; ?>cabana.jpeg" class="img-fluid">
-                </div>
+                <?php foreach($imgs as $img): ?>
 
-                <div class="col-md-4 mb-4" data-aos="fade-up">
-                    <img src="<?php echo UPLOADS_IMG_URL; ?>cabana2.jpeg" class="img-fluid">
-                </div>
+                    <div class="col-md-4 mb-4" data-aos="fade-up">
+                        <img src="<?php echo UPLOADS_IMG_URL . $img['arquivo']; ?>" alt="Imagem da galeria" class="img-fluid rounded">
+                    </div>
 
-                <div class="col-md-4 mb-4" data-aos="fade-up">
-                    <img src="<?php echo UPLOADS_IMG_URL; ?>cabana2.jpeg" class="img-fluid">
-                </div>
+                <?php endforeach; ?>
 
+</div>
+            <!-- BOTÃO VER MAIS -->
+            <div class="mt-4">
+                <a href="photos.php" class="btn btn-success btn-lg">
+                    Ver todas as fotos
+                </a>
             </div>
 
         </div>
 
     </section>
+
     <section class="container py-5">
 
         <h2 class="text-center mb-5">Reserve sua estadia</h2>
@@ -269,8 +271,7 @@ if (isset($_SESSION['acesso'])) {
                         <h4>Refúgio Serrano</h4>
 
                         <p>
-                            Hospedagem completa com chalés aconchegantes
-                            e café da manhã.
+                            Hospedagem completa com Cabana aconchegantes.
                         </p>
 
                         <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html"
@@ -294,8 +295,7 @@ if (isset($_SESSION['acesso'])) {
                         <h4>Chalé Refúgio Serrano</h4>
 
                         <p>
-                            Chalé privativo ideal para casal
-                            em meio à natureza.
+                            Chalé privativo ideal para casal em meio à natureza.
                         </p>
 
                         <a href="https://www.booking.com/hotel/br/refugio-serrano-chale.pt-pt.html" target="_blank"
@@ -326,7 +326,7 @@ if (isset($_SESSION['acesso'])) {
                 Garanta sua hospedagem agora mesmo
             </p>
 
-            <a href="https://www.booking.com/hotel/br/refugio-serrano-sao-francisco-de-paula1.pt-br.html" class="btn btn-light btn-lg">
+            <a href="https://www.booking.com/" class="btn btn-light btn-lg">
                 Reservar no Booking
             </a>
 
